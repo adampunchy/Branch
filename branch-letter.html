@@ -23,7 +23,6 @@
 
   .page {
     page-break-after: always;
-    border: 1px solid #000;
     z-index: 5;
   }
 
@@ -33,7 +32,6 @@
     height: 10.625in;
     left: 0.1875in;
     top: 0.1875in;
-    border: 1px solid blue;
   }
 
   #logo {
@@ -64,7 +62,6 @@
     top: 1.7in;
     width: 3.5in;
     height: 1.125in;
-    background-color: rgba(255,0,0,0.5);
   }
 
   #recipient-address-text p {
@@ -75,17 +72,18 @@
   #promo {
     position: absolute;
     right: .7in;
-    top: .7in;
+    top: .4in;
     width: 3in;
-    padding: .15in;
+    padding: .2in .2in .1in .2in;
     background-color: #eaf5e9;
-    line-height: 1.5em;
+    line-height: 1.3em;
     font-size: 10pt;
   }
 
   #promo h3 {
-    font-size: 20px;
+    font-size: 22px;
     color: #0c7a61;
+    line-height: 1.05em;
     padding: 0;
     margin: 0;
   }
@@ -94,16 +92,20 @@
     font-weight: bold;
     color: #0c7a61;
     font-size: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .dashed img {
-    margin-top: 50px;
+    margin-top: 35px;
+    margin-bottom: 20px;
     width: 6.5in;
   }
 
   #stripes {
     position: absolute;
     right: .5in;
+    top: -.2in;
     height: 200px;
     z-index: -1;
   }
@@ -177,7 +179,7 @@
   #sign {
     font-size: 11px;
     font-weight: bold;
-    margin-top: 40px;
+    margin-top: 45px;
   }
 
   #sign td {
@@ -186,6 +188,11 @@
   .code {
     font-size: 20px;
     text-indent: 55px;
+  }
+
+  .authcopy {
+    width: 5.3in;
+    font-size: 9px;
   }
 
   .fineprint {
@@ -203,10 +210,10 @@
     <!-- This div represents a white box which will be printed on top of all artwork to hold address and barcode information. Any content provided underneath this area will be covered. -->
     <div id="white-box">
       <div id="recipient-address-text">
-          <p>FIRST LASTNAME</p>
-          <p>ADDRESS LINE 1</p>
-          <p>ADDRESS LINE 2</p>
-          <p>CITY, STATE 55555</p>
+          <p>{{firstname}} {{lastname}}</p>
+          <p>{{address_line01}}</p>
+          <p>{{address_line02}}</p>
+          <p>{{city}}, {{state}} {{zipcode}}</p>
       </div>
     </div>
 
@@ -215,12 +222,13 @@
 
     <div id="promo">
       <h3>Your paycheck does more with Branch+</h3>
-      <p><b>$10 bonus when you complete setup.</b><p>
-      <p><span>BRANCH+ INSTANT PAY BENEFITS</span><br>
+      <p><b>Get 2-Months of streaming paid with setup (Netflix, Hulu or Disney+)*</b><p>
+      <p><span>BRANCH+ MEMBERSHIP BENEFITS</span><br>
          <b>+</b> Payback extensions<br>
          <b>+</b> Higher advance limits<br>
          <b>+</b> Automatically qualify<br>
        </p>
+       <p class="fineprint">* $20 credit after two consecutive direct deposits.</p>
     </div>
 
     <img id="stripes" src="https://raw.githubusercontent.com/adampunchy/Branch/master/assets/stripes_vertical.png" />
@@ -245,6 +253,7 @@
 
         <p>If you have any questions please reach out to <a>onboarding@branchapp.com</a><br>
 Your switch can take 1 - 2 payroll cycles to update, before your first paycheck is direct deposited to Branch.</p>
+  <p><small>$20 credit is applied to Branch account after depositing two consecutive deposits for a minimum of $250.</small></p>
         </div>
 
 
@@ -257,7 +266,7 @@ Your switch can take 1 - 2 payroll cycles to update, before your first paycheck 
           <table class="authform">
               <tr>
                 <td>Name</td>
-                <td class="acctinfo" width="180">First Lastname</td>
+                <td class="acctinfo" width="180">{{firstname}} {{lastname}}</td>
                 <td rowspan="3"><p>Bank Name<br>
                   <b>Evolve Bank & Trust Memphis, TN<br>
                   6070 Poplar Avenue, Suite 200<br>
@@ -265,11 +274,11 @@ Your switch can take 1 - 2 payroll cycles to update, before your first paycheck 
               </tr>
               <tr>
                 <td>Account Number</td>
-                <td class="acctinfo">972000000000XXXX</td>
+                <td class="acctinfo">{{account_number}}</td>
               </tr>
               <tr>
                 <td>Routing Number</td>
-                <td class="acctinfo">084108957</td>
+                <td class="acctinfo">{{routing_number}}</td>
               </tr>
             </table>
 
@@ -280,7 +289,7 @@ Your switch can take 1 - 2 payroll cycles to update, before your first paycheck 
       </tr>
     </table>
 
-      <p class="fineprint"> I authorize my employer and/or payer to initiate credit, and, if necessary, to initiate any debit entries to correct previous credit errors, to my Branch Checking Account. This authority will remain in effect until I notify my employer or other payor in writing, or as otherwise specified by my employer or payor.</P>
+      <p class="authcopy"> I authorize my employer and/or payer to initiate credit, and, if necessary, to initiate any debit entries to correct previous credit errors, to my Branch Checking Account. This authority will remain in effect until I notify my employer or other payor in writing, or as otherwise specified by my employer or payor.</P>
       <!-- Black Branch Logo! -->
       <img id="logosm" src="https://raw.githubusercontent.com/adampunchy/Branch/master/assets/branch_logo_black.png" width="100px" />
 
